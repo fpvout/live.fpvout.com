@@ -35,6 +35,7 @@ export default {
       node: this.playerId,
       debug: true,
       mode: 'video',
+      fps: 60,
     });
 
     this.device.onData = (data) => {
