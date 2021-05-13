@@ -12,6 +12,7 @@ jobs:
           npm install
           sudo npm -g install yarn
           yarn build
+          echo "live.fpvout.com" > dist/CNAME
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
