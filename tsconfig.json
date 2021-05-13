@@ -1,0 +1,19 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+
+  "compilerOptions": {
+    "baseUrl": "src",
+    "preserveConstEnums": true,
+    "outDir": "bin",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "lib": ["dom"],
+    "paths": {
+      "~/*": ["src/*"]
+    },
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
