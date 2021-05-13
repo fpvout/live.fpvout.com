@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   target: 'web',
   output: {
-    publicPath: '/dist/',
+    publicPath: '/',
     path: path.join(__dirname, 'dist'),
   },
   entry: {
