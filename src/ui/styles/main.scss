@@ -1,0 +1,14 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+@import 'utilities';
+@import 'utilities/api';
+@import 'fonts';
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme("default", (
+  primary: $colors-primary,
+  accent: $colors-secondary
+));
+
+@import "~vue-material/dist/theme/all";

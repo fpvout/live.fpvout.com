@@ -1,8 +1,9 @@
 <template>
   <div>
-    <p><strong>Device Serial Number:</strong> {{ device.serialNumber }}</p>
     <video ref="player" controls autoplay :class="{hidden: !isPlaying}" :id="playerId"></video>
-    <button @click="stopVideo">Stop</button>
+    <div v-if="!isPlayer">
+      <p class="text-center md-title">Waiting to recieve video...</p>
+    </div>
   </div>
 </template>
 
@@ -33,7 +34,7 @@ export default {
   mounted() {
     this.jmuxer = new JMuxer({
       node: this.playerId,
-      debug: true,
+      debug: false,
       mode: 'video',
       fps: 60,
     });
@@ -65,5 +66,8 @@ export default {
 <style scoped>
   .hidden {
     display: none;
+  }
+  .text-center {
+    text-align: center;
   }
 </style>

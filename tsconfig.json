@@ -11,7 +11,7 @@
     "resolveJsonModule": true,
     "lib": ["dom"],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["*"]
     },
   },
   "include": ["src/**/*"],

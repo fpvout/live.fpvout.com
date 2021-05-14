@@ -1,0 +1,22 @@
+$colors-primary: #4776e6;
+$colors-secondary: #8e54e9;
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+$negative-spacers: negativify-map($spacers) !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;

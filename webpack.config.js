@@ -9,7 +9,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
   },
   entry: {
-    ui: './src/entrypoints/ui.js',
+    ui: './src/entrypoints/ui.ts',
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -44,16 +44,26 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: ['vue-style-loader',
+        test: /\.scss$/,
+        use: ['vue-style-loader', 'css-loader',
           {
-            loader: 'css-loader',
+            loader:'sass-loader',
             options: {
-              esModule: false,
-              url: false,
-            },
-          },
+              additionalData: `
+              @import "~/ui/styles/_functions.scss";
+              @import "~/ui/styles/_variables.scss";
+              `,
+            }
+          }
         ],
+      },
+      {
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg|png|jpeg|jpg)$/i,
+        type: 'asset/resource',
       },
     ],
   },

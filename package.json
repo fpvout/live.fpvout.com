@@ -11,8 +11,11 @@
     "@tsconfig/node14": "^1.0.0",
     "@types/jmuxer": "^2.0.0",
     "@types/w3c-web-usb": "^1.0.4",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "jmuxer": "^2.0.1",
+    "node-sass": "^6.0.0",
+    "sass-loader": "^11.1.1",
     "stream-browserify": "^3.0.0",
     "ts-loader": "^9.1.2",
     "typescript": "^4.2.4",
@@ -23,9 +26,13 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.0",
+    "@mdi/js": "^5.9.55",
     "buffer": "^6.0.3",
     "css-loader": "^5.2.4",
     "vue": "^2.6.12",
+    "vue-material": "^1.0.0-beta-15",
+    "vue-router": "^3.5.1",
     "vue-style-loader": "^4.1.3"
   }
 }
