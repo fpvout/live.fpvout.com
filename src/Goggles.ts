@@ -32,9 +32,12 @@ export default class Goggles {
     await this.device.claimInterface(3);
   }
 
+  async close() {
+    this.device.close();
+  }
+
   async requestVideo() {
-    const writeResult = await this.sendRawData(new Uint8Array([0x52, 0x4d, 0x56, 0x54]));
-    return writeResult.status === 'ok';
+    this.sendRawData(new Uint8Array([0x52, 0x4d, 0x56, 0x54]));
   }
 
   async startPolling() {
@@ -43,7 +46,6 @@ export default class Goggles {
       if (this.device.opened) {
         const result = await this.device.transferIn(ENDPOINT_IN, BUFFER_LENGTH);
         if (this.onDataCallback !== null && result.data) {
-          console.log(result);
           this.onDataCallback(result.data);
         }
       }

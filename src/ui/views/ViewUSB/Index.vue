@@ -31,7 +31,7 @@
 
 <script>
 import GogglesDevice, {VID, PID} from '~/Goggles';
-import Goggles from '~/ui/views/ViewUSB/Goggle.vue';
+import Goggles from '~/ui/views/ViewUSB/VideoPlayer/Index.vue';
 
 export default {
   components: {Goggles},

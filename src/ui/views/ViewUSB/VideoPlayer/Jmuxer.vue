@@ -1,7 +1,7 @@
 <template>
   <div>
     <video ref="player" controls autoplay :class="{hidden: !isPlaying}" :id="playerId"></video>
-    <div v-if="!isPlayer">
+    <div v-if="!isPlaying">
       <p class="text-center md-title">Waiting to recieve video...</p>
     </div>
   </div>
