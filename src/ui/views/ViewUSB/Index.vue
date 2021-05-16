@@ -10,6 +10,7 @@
           <li>Wait for goggles to Connect</li>
           <li>Power up your drone</li>
         </ol>
+        <p>Having problems? <a href="https://github.com/fpvout/fpv-browser/issues">Let us know</a></p>
       </div>
       <md-dialog-actions>
         <md-button class="md-primary" @click="showHelp = false">Ok</md-button>
@@ -53,6 +54,7 @@ export default {
     requestConnection() {
       navigator.usb.requestDevice({filters: [{vendorId: VID, productId: PID}]}).then((device) => {
         this.connectToGoggles(device);
+        console.log(device);
       })
     }
   }
