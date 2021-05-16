@@ -1,7 +1,7 @@
 <template>
   <div>
-    <md-switch v-model="userEnabledWebCodecs">Enable WebCodecs<small>(experimental)</small></md-switch>
-    <component :is="isWebCodecAvailable ? 'web-codec' : 'jmuxer'" :device="device" />
+    <md-switch v-model="userEnabledWebCodecs">Enable WebCodecs <small>(experimental)</small></md-switch>
+    <component :is="webCodecsEnabled ? 'web-codec' : 'jmuxer'" :device="device" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   props: ['device'],
   data() {
     return {
-      userEnabledWebCodecs: false,
+      userEnabledWebCodecs: true,
     }
   },
   components: {Jmuxer, WebCodec},
