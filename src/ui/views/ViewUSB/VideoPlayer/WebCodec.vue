@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas ref="player" style="width:50%;border: 1px solid #bababa" width="720" height="576"></canvas>
+    <canvas ref="player" style="width:50%;border: 1px solid #bababa" width="960" height="720"></canvas>
   </div>
 </template>
 
