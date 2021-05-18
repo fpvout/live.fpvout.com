@@ -17,5 +17,8 @@ View the live site at https://live.fpvout.com
 5. Wait for goggles to Connect
 6. Power up your drone
 
+# Support
+Check the [DigiView Wiki](https://github.com/fpvout/fpvout.com/wiki), or join us on our [Discord server](https://discord.gg/4kUGdtAZJ5).
+
 # Sponsors
 Help us make DigiView even better by supporting us on [Open Collective](https://opencollective.com/fpvout)
