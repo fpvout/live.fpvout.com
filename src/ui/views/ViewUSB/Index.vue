@@ -5,6 +5,7 @@
       <md-dialog-title>Help</md-dialog-title>
       <div class="md-dialog-content">
         <ol>
+          <li>If you're using Windows, make sure you have the <a href="https://zadig.akeo.ie/">Zadig drivers</a> installed</li>
           <li>Connect your goggles to your computer</li>
           <li>Click "Connect to goggles"</li>
           <li>Wait for goggles to Connect</li>
