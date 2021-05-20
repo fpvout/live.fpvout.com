@@ -13,3 +13,7 @@ new Vue({
   render: (h) => h(App),
   router: createRouter(),
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/serviceWorker.js');
+}
