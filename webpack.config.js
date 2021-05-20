@@ -10,12 +10,12 @@ module.exports = {
   },
   entry: {
     ui: './src/entrypoints/ui.ts',
+    serviceWorker: './src/entrypoints/serviceWorker.ts',
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9001,
-    https: true,
   },
   resolve: {
     alias: {

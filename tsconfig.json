@@ -9,7 +9,7 @@
     "target": "ES6",
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "lib": ["dom"],
+    "lib": ["dom", "webworker"],
     "paths": {
       "~/*": ["*"]
     },
