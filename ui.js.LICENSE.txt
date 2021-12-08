@@ -19,8 +19,6 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
-/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
-
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
  * @version 1.15.0
