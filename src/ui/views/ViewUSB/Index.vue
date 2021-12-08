@@ -36,13 +36,14 @@ export default {
   components: {Goggles},
   data() {
     return {
-      compatibleBrowser: false,
       pairedGoggles: [],
       showHelp: false,
     }
   },
-  mounted() {
-    this.compatibleBrowser = navigator.userAgent.indexOf('Chrome') !== -1;
+  computed: {
+    compatibleBrowser() {
+      return navigator.userAgent.indexOf('Chrome') !== -1;
+    },
   },
   methods: {
     async connectToGoggles(device) {
