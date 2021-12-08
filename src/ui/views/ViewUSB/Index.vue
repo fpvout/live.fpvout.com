@@ -1,6 +1,5 @@
 <template>
-  <div class="">
-
+  <div>
     <md-dialog :md-active.sync="showHelp">
       <md-dialog-title>Help</md-dialog-title>
       <div class="md-dialog-content">
@@ -16,17 +15,16 @@
         <md-button class="md-primary" @click="showHelp = false">Ok</md-button>
       </md-dialog-actions>
     </md-dialog>
-
-    <div class="">
-      <div class="flex justify-between">
-        <p>{{ pairedGoggles.length }} Goggles connected</p>
-        <div class="flex align-center">
-          <md-button @click="requestConnection" class="md-raised md-accent">Connect To Goggles</md-button>
-          <md-button @click="showHelp = true" class="md-icon-button"><icon icon="help"></icon></md-button>
-        </div>
+    
+    <div class="flex justify-between">
+      <p>{{ pairedGoggles.length }} Goggles connected</p>
+      <div class="flex align-center">
+        <div v-if="!compatibleBrowser">Your browser is not compatible, please use Google Chrome.</div>
+        <md-button @click="requestConnection" class="md-raised md-accent" :disabled="!compatibleBrowser">Connect To Goggles</md-button>
+        <md-button @click="showHelp = true" class="md-icon-button"><icon icon="help"></icon></md-button>
       </div>
-      <goggles v-for="(device, index) in pairedGoggles" :key="index" :device="device" />
     </div>
+    <goggles v-for="(device, index) in pairedGoggles" :key="index" :device="device" />
   </div>
 </template>
 
@@ -38,11 +36,13 @@ export default {
   components: {Goggles},
   data() {
     return {
+      compatibleBrowser: false,
       pairedGoggles: [],
       showHelp: false,
     }
   },
-  created() {
+  mounted() {
+    this.compatibleBrowser = navigator.userAgent.indexOf('Chrome') !== -1;
   },
   methods: {
     async connectToGoggles(device) {
