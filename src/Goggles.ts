@@ -33,7 +33,7 @@ export default class Goggles {
   }
 
   async close() {
-    this.device.close();
+    await this.device.close();
   }
 
   async requestVideo() {

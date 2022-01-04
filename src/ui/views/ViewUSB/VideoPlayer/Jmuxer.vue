@@ -23,6 +23,7 @@ export default {
       return `player-${this.device.serialNumber}`;
     },
   },
+
   methods: {
     stopVideo() {
       this.device.stopPolling();
@@ -31,6 +32,11 @@ export default {
       this.device.startPolling();
     }
   },
+
+  beforeDestroy() {
+    this.stopVideo();
+  },
+
   mounted() {
     this.jmuxer = new JMuxer({
       node: this.playerId,
@@ -51,8 +57,9 @@ export default {
       this.isPlaying = true;
     };
 
-    this.device.startPolling();
+    this.startVideo();
   },
+
   watch: {
     isPlaying() {
       if (this.$refs.player.paused) {

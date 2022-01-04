@@ -14,22 +14,32 @@ const MICROSECONDS_PER_FRAME = 16700;
 
 export default {
   props: ['device'],
+
   data() {
     return {
       isPlaying: false,
     }
   },
+
   computed: {  },
+
   methods: {
     stopVideo() {
       this.device.stopPolling();
     },
+
     startVideo() {
       this.device.startPolling();
     }
   },
+
+  beforeDestroy() {
+    this.stopVideo();
+  },
+
   mounted() {
     const canvasContext = this.$refs.player.getContext('2d');
+
     const handleFrame = (frame) => {
       canvasContext.drawImage(frame, 0, 0);
       frame.close();
@@ -37,13 +47,18 @@ export default {
 
     const init = {
       output: handleFrame,
-      error: (e) => {
-        console.log(e);
-        this.device.close();
+      error: async (e) => {
+        console.error('VideoDecoder Error', e);
+        await this.device.close();
       },
     };
-    let decoder = new VideoDecoder(init);
-    decoder.configure({ codec: 'avc1.64002A' });
+
+    const decoder = new VideoDecoder(init);
+    decoder.configure({
+      codec: 'avc1.64002A',
+      optimizeForLatency: true,
+      hardwareAcceleration: 'prefer-hardware',
+    });
 
     let currentTimestamp  = 0;
     this.device.onData = (data) => {
@@ -64,7 +79,7 @@ export default {
       }
 
       if (NALUnitsFound % 2 === 1) {
-        console.log(`Uneven number of NAL units found: ${NALUnitsFound}`);
+        console.warn(`Uneven number of NAL units found: ${NALUnitsFound}`);
         return;
       }
 
@@ -74,10 +89,16 @@ export default {
         timestamp: currentTimestamp,
         data: chunkData,
       })
-      decoder.decode(chunk);
+
+      try {
+        decoder.decode(chunk);
+      } catch (e) {
+        console.warn('Failed to decode chunk: ', chunk, e);
+        this.stopVideo();
+      }
     };
 
-    this.device.startPolling();
+    this.startVideo();
   },
 }
 </script>
