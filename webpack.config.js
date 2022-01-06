@@ -17,6 +17,14 @@ module.exports = {
     compress: true,
     port: 9001,
     https: true,
+    // We need this rewrite rule to test 404 page in development, copy 404.html file
+    // to the dist folder manually, it's git-ignored anyways, once we're confident
+    // this is working, we can change the directive historyApiFallback to true.
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/.+/, to: '/404.html' },
+      ],
+    },
   },
   resolve: {
     alias: {
