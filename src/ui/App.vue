@@ -5,6 +5,7 @@
     </md-app-toolbar>
     <md-app-content>
       <router-view />
+      <footer id="footer">DigiView Web - <router-link to="/about">About</router-link></footer>
     </md-app-content>
   </md-app>
 </template>
@@ -32,5 +33,12 @@ export default {
   }
   .md-app-toolbar .md-title {
     color: white!important;
+  }
+  #footer {
+    position: absolute;
+    text-align: center;
+    bottom: 1em;
+    left: 0;
+    right: 0;
   }
 </style>
