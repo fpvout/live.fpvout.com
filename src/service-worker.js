@@ -1,14 +1,14 @@
 /// <reference lib="WebWorker" />
-declare const self: ServiceWorkerGlobalScope;
 
 import {version} from '~/../package.json';
 
 const CACHE_NAME = 'live.fpvout.com';
 const CACHE_VERSION = version;
 const urlsToCache = [
-  '/',
-  '/8ce9f1aeb7bb35922c23.ttf',
-  '/ui.js'
+  './',
+  './assets/Gidole-Regular.ttf',
+  './assets/app.js',
+  './assets/index.css'
 ];
 
 self.addEventListener('install', function(event) {
@@ -51,13 +51,13 @@ self.addEventListener("fetch", function (event) {
           caches.open(CACHE_VERSION + CACHE_NAME).then((cache) => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(request).then((response) => response || caches.match("/"))) as Promise<Response>
+        .catch(() => caches.match(request).then((response) => response || caches.match("/")))
     );
     return;
   } else {
     event.respondWith(
       caches.match(request)
-        .then((response) => response || fetch(request) as Promise<Response>)
+        .then((response) => response || fetch(request))
     );
   }
 });

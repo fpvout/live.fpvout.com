@@ -43,7 +43,7 @@ export default class Goggles {
       if (this.device.opened) {
         const result = await this.device.transferIn(ENDPOINT_IN, BUFFER_LENGTH);
         if (this.onDataCallback !== null && result.data) {
-          console.log(result);
+          // console.log(result);
           this.onDataCallback(result.data);
         }
       }

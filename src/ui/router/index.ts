@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 export default function createRouter(): VueRouter {
   const router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     routes,
   });
 

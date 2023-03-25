@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueMaterial from 'vue-material';
-import App from "~/ui/App.vue";
-import Icon from "~/ui/components/Icon.vue";
-import createRouter from '~/ui/router/index';
+import App from "./App.vue";
+import Icon from "./components/Icon.vue";
+import createRouter from './router/index';
 import 'vue-material/dist/vue-material.min.css';
 
 Vue.use(VueMaterial);
@@ -15,5 +15,5 @@ new Vue({
 });
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceWorker.js');
+  navigator.serviceWorker.register('./service-worker.js');
 }
