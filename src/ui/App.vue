@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import HeaderNav from '~/ui/components/nav/HeaderNav.vue';
+import HeaderNav from './components/nav/HeaderNav.vue';
 
 export default {
   components: {HeaderNav},
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~/ui/styles/main.scss';
+  @import './styles/main.scss';
 
   #app, body {
     min-height: 100%;
