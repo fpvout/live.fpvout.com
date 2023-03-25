@@ -2,6 +2,8 @@ import vue from '@vitejs/plugin-vue2'
 const path = require('path')
 
 export default {
+  /** allow hosting in subfolders like gh-pages */
+  base: './',
   build: {
     rollupOptions: {
       input: {
