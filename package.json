@@ -7,6 +7,8 @@
     "serve": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "npx gh-pages -d dist",
     "vis": "npx vite-bundle-visualizer"
   },
   "dependencies": {
