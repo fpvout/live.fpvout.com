@@ -5,10 +5,10 @@ import {version} from '~/../package.json';
 const CACHE_NAME = 'live.fpvout.com';
 const CACHE_VERSION = version;
 const urlsToCache = [
-  '/',
-  '/assets/Gidole-Regular.ttf',
-  '/assets/app.js',
-  '/assets/index.css'
+  './',
+  './assets/Gidole-Regular.ttf',
+  './assets/app.js',
+  './assets/index.css'
 ];
 
 self.addEventListener('install', function(event) {
