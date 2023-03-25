@@ -1,0 +1,15 @@
+{
+    "name": "digiview",
+    "short_name": "digiview",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "lang": "en",
+    "scope": "/",
+    "theme_color": "#306ad2",
+    "icons": [
+        {
+            "src": "/logo.png"
+        }
+    ]
+}
