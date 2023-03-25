@@ -16,7 +16,6 @@
 </template>
 
 <script>
-// import * as MDI from '@mdi/js';
 import {mdiDiscord, mdiGooglePlay, mdiGithub, mdiHelpCircleOutline } from '@mdi/js';
 const MDI = {mdiDiscord, mdiGooglePlay, mdiGithub, mdiHelpCircleOutline }
 
